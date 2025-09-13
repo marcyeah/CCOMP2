@@ -1,0 +1,24 @@
+#include <iostream>
+
+static void mult_matrix(int (*A)[3], int (*B)[3], int (*C)[3]) {
+    int* c = *C;
+    for (int(*p)[3] = A; p < (A + 3); p++) {
+        for (int* q = *B; q < *B + 3; q++, c++) {
+            *c = (**p * *q) + (*(*p + 1) * *(q + 3)) + (*(*p + 2) * *(q + 6));
+        }
+    }
+}
+
+static void print(int (*C)[3]) {
+    for (int* p = *C; p < *(C + 3); p++) {
+        std::cout << *p << " ";
+    }
+}
+
+int main() {
+    int A[3][3] = { {2, 4, 6}, {2, 1, 4}, {9, 3, 5 } };
+    int B[3][3] = { {2, 4, 6}, {2, 1, 4}, {9, 3, 5 } };
+    int C[3][3] = {};
+    mult_matrix(A, B, C);
+    print(C);
+}
