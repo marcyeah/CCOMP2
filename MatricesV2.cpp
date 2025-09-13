@@ -1,3 +1,7 @@
+/*Cree un programa que multiplique dos matrices 3x3 usando punteros. PD: disfruté mucho hacer este código, la primera versión, me costó
+bastante, el código era más complicado y usaba contadores en vez de solo punteros, la solución resultó ser más fácil de lo que pensaba,
+esto lo hice un año después de la primera versión, tal vez no sea el mejor código, pero estoy orgulloso, de todas formas no lo hubiera
+terminado sin Kevin, admito que recibí un poco de su ayuda en cuanto a la sintaxis que se me había olvidado jeje.*/
 #include <iostream>
 
 static void mult_matrix(int (*A)[3], int (*B)[3], int (*C)[3]) {
