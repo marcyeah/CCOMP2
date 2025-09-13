@@ -14,14 +14,15 @@ static void mult_matrix(int (*A)[3], int (*B)[3], int (*C)[3]) {
 }
 
 static void print(int (*C)[3]) {
-    for (int* p = *C; p < *(C + 3); p++) {
-        std::cout << *p << " ";
+    for (int* p = *C; p < *(C + 3); p+=3) {
+        std::cout << *p << " | " << *(p + 1) << " | " << *(p + 2) << std::endl;
+        if (p != *(C + 3) - 3) std::cout << "-   -   -" << std::endl;
     }
 }
 
 int main() {
-    int A[3][3] = { {2, 4, 6}, {2, 1, 4}, {9, 3, 5} };
-    int B[3][3] = { {2, 4, 6}, {2, 1, 4}, {9, 3, 5} };
+    int A[3][3] = { {2, 0, 1}, {3, 0, 0}, {5, 1, 1} };
+    int B[3][3] = { {1, 0, 1}, {1, 2, 1}, {1, 1, 0} };
     int C[3][3] = {};
     mult_matrix(A, B, C);
     print(C);
